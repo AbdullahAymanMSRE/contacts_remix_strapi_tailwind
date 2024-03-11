@@ -20,9 +20,13 @@ import appStylesHref from "./app.css";
 import { getContacts } from "./data.server";
 import qs from "qs";
 import { useEffect } from "react";
+import stylesheet from "~/tailwind.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: appStylesHref }];
+  return [
+    { rel: "stylesheet", href: appStylesHref },
+    { rel: "stylesheet", href: stylesheet },
+  ];
 };
 
 export async function ErrorBoundary() {
@@ -102,7 +106,7 @@ export default function App() {
           </div>
           <nav>
             {contacts.length ? (
-              <ul>
+              <ul className="">
                 {contacts.map((contact) => (
                   <li key={contact.id}>
                     <NavLink
